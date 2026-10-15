@@ -24,7 +24,7 @@ public partial class MainWindow : Window
     public MainWindow()
     {
         InitializeComponent();
-        AsciiArt.Text = AsciiLogo.Text;                 // Part 1 ASCII art in the GUI
+        AsciiArt.Text = AsciiLogo.Text;                 
         Loaded += async (s, e) => await StartAsync();
     }
 
@@ -32,7 +32,7 @@ public partial class MainWindow : Window
 
     private async Task StartAsync()
     {
-        SoundManager.PlayWelcomeSound();                // Part 1 voice greeting
+        SoundManager.PlayWelcomeSound();                
         _busy = true;
         SetInputEnabled(false);
         await BotSayAsync("Hello! Welcome to the Cybersecurity Awareness Bot. " +
@@ -154,7 +154,7 @@ public partial class MainWindow : Window
         await Task.Delay(450);
 
         body.Text = "";
-        int chunk = Math.Max(1, text.Length / 120);     // keeps long replies quick
+        int chunk = Math.Max(1, text.Length / 120);     
         for (int i = 0; i < text.Length; i += chunk)
         {
             body.Text = text.Substring(0, Math.Min(text.Length, i + chunk));
