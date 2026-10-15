@@ -1,52 +1,107 @@
-# Cybersecurity Awareness Bot — Part 2 (WPF GUI)
+# Cybersecurity Awareness Bot
 
-A WPF desktop chatbot that teaches users about online safety.
-Builds on Part 1 (voice greeting, ASCII art, name greeting, validation) and adds keyword recognition,
-random responses, conversation flow, memory, sentiment detection and error handling.
+## About the Project
 
-## Requirements
-- Windows 10/11
-- .NET 8 SDK (or Visual Studio 2022 with the ".NET desktop development" workload)
+The Cybersecurity Awareness Bot is a C# application designed to promote cybersecurity awareness by providing users with helpful information, tips, and guidance on staying safe online.
 
-## Run
-1. Copy your Part 1 recording to `Assets/greeting.wav` (the file is copied to the output folder automatically).
-2. `dotnet run` — or open the `.csproj` in Visual Studio and press F5.
-3. Enter your name, then chat or use the Quick Topics buttons.
+The project aims to educate users about common cybersecurity threats and encourage safe digital practices through an interactive chatbot interface.
 
-## Try these
-| You type | What happens |
-|---|---|
-| `Tell me about password safety` | Keyword recognition → random tip |
-| `Give me a phishing tip` | Random response (never repeats back-to-back) |
-| `Another tip` / `Tell me more` / `I'm confused` | Follow-up on the current topic |
-| `I'm interested in privacy` | Memory: stored and recalled later |
-| `I'm worried about online scams` | Sentiment: empathy + a tip straight away |
-| `What do you remember?` | Memory recall |
-| `asdfgh` or empty input | Friendly default response, no crash |
-| `exit` | Goodbye and close |
+## Features
 
-## Structure
-| File | Purpose |
-|---|---|
-| `MainWindow.xaml(.cs)` | GUI layout, chat bubbles, typing effect |
-| `ChatEngine.cs` | Intent matching (delegates), flow, memory, random picks |
-| `TopicLibrary.cs` / `Topic.cs` | Dictionary + Lists of keywords and responses |
-| `SentimentDetector.cs` | Sentiment keywords and replies |
-| `UserMemory.cs` | Remembered user details (auto-properties) |
-| `SoundManager.cs` | Plays the WAV greeting |
-| `AsciiLogo.cs` | ASCII logo from Part 1 |
+- **Interactive Chatbot:** Allows users to interact with the bot through a graphical user interface.
+- **Cybersecurity Tips:** Provides information about online safety and cybersecurity best practices.
+- **User-Friendly Interface:** Uses Windows Presentation Foundation (WPF) to create an accessible desktop interface.
+- **Input Handling:** Processes user input and responds to supported questions and keywords.
+- **Audio Functionality:** Includes sound functionality for an enhanced user experience, where configured.
+- **Modular Code Structure:** Separates interface, chatbot logic, and supporting functionality into different components.
 
-## Releases (Part 2 needs at least 2)
-```
-git tag -a v1.0.0 -m "Part 1: console chatbot"      # tag your Part 1 commit
-git tag -a v2.0.0 -m "Part 2: WPF GUI chatbot"
-git push --tags
-```
-Then create a GitHub Release from each tag with notes.
+## Technologies Used
 
-## CI
-GitHub Actions builds the project on every push (`.github/workflows/dotnet.yml`).
-Add a screenshot of the green tick here.
+- C#
+- .NET
+- Windows Presentation Foundation (WPF)
+- XAML
+- Visual Studio
+- Git and GitHub
 
-## Video
-YouTube (unlisted): _add link_
+## Cybersecurity Topics
+
+The chatbot can be developed to provide guidance on topics such as:
+
+- Password security
+- Phishing and suspicious links
+- Online privacy
+- Malware and viruses
+- Safe browsing practices
+- Protecting personal information
+
+## Getting Started
+
+### Prerequisites
+
+Before running the project, ensure you have:
+
+- Windows operating system
+- Visual Studio with the .NET desktop development workload installed
+- A compatible .NET SDK
+- Git, if you want to clone the repository
+
+### Installation
+
+1. Clone this repository:
+
+   ```bash
+   git clone YOUR_GITHUB_REPOSITORY_URL
+   ```
+
+2. Open the downloaded project folder.
+
+3. Open the solution file (`.sln`) in Visual Studio, or open the project file (`.csproj`).
+
+4. Restore any required NuGet packages.
+
+5. Build the project by selecting **Build → Build Solution**.
+
+6. Run the application using **F5** or **Start** in Visual Studio.
+
+## Project Structure
+
+The project may include the following components, depending on the current implementation:
+
+- `MainWindow.xaml` — Defines the graphical user interface.
+- `MainWindow.xaml.cs` — Handles interface events and user interactions.
+- `ChatEngine.cs` — Contains the chatbot's response and processing logic.
+- `BotResponses.cs` — Organises chatbot responses, if implemented separately.
+- `SoundManager.cs` — Manages audio functionality, if included.
+- `CybersecurityAwarenessBot.csproj` — Contains project configuration and dependencies.
+
+## How to Use
+
+1. Launch the Cybersecurity Awareness Bot application.
+2. Enter a question or keyword related to cybersecurity.
+3. Submit your input through the chat interface.
+4. Read the chatbot's response and cybersecurity guidance.
+5. Continue interacting with the bot to explore other supported topics.
+
+## Learning Objectives
+
+This project provides practical experience in:
+
+- C# programming and object-oriented development
+- Building desktop applications using WPF
+- Handling user input and application events
+- Separating user interface code from application logic
+- Implementing basic chatbot functionality
+- Using Git and GitHub for version control
+
+## Future Improvements
+
+Potential enhancements include:
+
+- Expanding the chatbot's knowledge base
+- Adding more cybersecurity topics and examples
+- Improving input validation and error handling
+- Enhancing the graphical interface
+- Adding additional accessibility features
+- Implementing automated tests for chatbot responses
+
