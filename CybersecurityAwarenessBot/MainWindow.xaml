@@ -1,0 +1,117 @@
+<Window x:Class="CybersecurityAwarenessBot.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Cybersecurity Awareness Bot"
+        Height="760" Width="1000" MinHeight="580" MinWidth="800"
+        Background="#0D1117" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <!-- Rounded button style used across the UI -->
+        <Style x:Key="BotButton" TargetType="Button">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Background" Value="#1F6FEB" />
+            <Setter Property="Padding" Value="14,9" />
+            <Setter Property="FontSize" Value="13" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="bd" Background="{TemplateBinding Background}"
+                                CornerRadius="8" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="bd" Property="Opacity" Value="0.85" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="bd" Property="Opacity" Value="0.4" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="TopicButton" TargetType="Button" BasedOn="{StaticResource BotButton}">
+            <Setter Property="Background" Value="#21262D" />
+            <Setter Property="Margin" Value="0,0,0,8" />
+        </Style>
+    </Window.Resources>
+
+    <Grid Margin="12">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- ===== Header: ASCII art logo from Part 1 ===== -->
+        <Border Grid.Row="0" Background="#161B22" BorderBrush="#00BCD4" BorderThickness="0,0,0,2"
+                CornerRadius="8" Padding="10" Margin="0,0,0,10">
+            <StackPanel>
+                <Viewbox MaxHeight="110" Stretch="Uniform" HorizontalAlignment="Center">
+                    <TextBlock x:Name="AsciiArt" FontFamily="Consolas" FontSize="12"
+                               Foreground="#00E5FF" />
+                </Viewbox>
+                <TextBlock Text="CYBERSECURITY AWARENESS BOT" Foreground="White" FontWeight="Bold"
+                           FontSize="16" HorizontalAlignment="Center" Margin="0,6,0,0" />
+            </StackPanel>
+        </Border>
+
+        <!-- ===== Body: chat area + topic sidebar ===== -->
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="230" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Background="#0D1117" BorderBrush="#30363D" BorderThickness="1"
+                    CornerRadius="8" Margin="0,0,10,0">
+                <ScrollViewer x:Name="ChatScroll" VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="ChatPanel" Margin="4" />
+                </ScrollViewer>
+            </Border>
+
+            <Border Grid.Column="1" Background="#161B22" BorderBrush="#30363D" BorderThickness="1"
+                    CornerRadius="8" Padding="12">
+                <StackPanel>
+                    <TextBlock Text="QUICK TOPICS" Foreground="#8B949E" FontWeight="Bold" Margin="0,0,0,10" />
+                    <Button Content="🔑  Password safety" Style="{StaticResource TopicButton}"
+                            Tag="Tell me about password safety" Click="TopicButton_Click" />
+                    <Button Content="🎣  Phishing" Style="{StaticResource TopicButton}"
+                            Tag="Give me a phishing tip" Click="TopicButton_Click" />
+                    <Button Content="⚠  Scams" Style="{StaticResource TopicButton}"
+                            Tag="How do I spot a scam?" Click="TopicButton_Click" />
+                    <Button Content="🕵  Privacy" Style="{StaticResource TopicButton}"
+                            Tag="Tell me about privacy" Click="TopicButton_Click" />
+                    <Button Content="🌐  Safe browsing" Style="{StaticResource TopicButton}"
+                            Tag="Tell me about safe browsing" Click="TopicButton_Click" />
+                    <Button Content="🦠  Malware" Style="{StaticResource TopicButton}"
+                            Tag="What is malware?" Click="TopicButton_Click" />
+                    <Button Content="🔐  Two-factor auth" Style="{StaticResource TopicButton}"
+                            Tag="Tell me about 2FA" Click="TopicButton_Click" />
+                    <Button Content="❓  What can I ask?" Style="{StaticResource TopicButton}"
+                            Tag="What can I ask you about?" Click="TopicButton_Click" />
+                    <Button Content="Exit" Background="#DA3633" Style="{StaticResource BotButton}"
+                            Margin="0,12,0,0" Tag="exit" Click="TopicButton_Click" />
+                </StackPanel>
+            </Border>
+        </Grid>
+
+        <!-- ===== Input row ===== -->
+        <Grid Grid.Row="2" Margin="0,10,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+
+            <TextBox x:Name="InputBox" Grid.Column="0" FontSize="15" Padding="10,8"
+                     Background="#161B22" Foreground="White" BorderBrush="#30363D"
+                     CaretBrush="White" VerticalContentAlignment="Center"
+                     KeyDown="InputBox_KeyDown" />
+            <Button x:Name="SendButton" Grid.Column="1" Content="Send  ➤" Margin="10,0,0,0"
+                    Style="{StaticResource BotButton}" Click="SendButton_Click" />
+        </Grid>
+    </Grid>
+</Window>
