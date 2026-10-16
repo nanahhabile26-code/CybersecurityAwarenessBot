@@ -15,6 +15,13 @@ The project aims to educate users about common cybersecurity threats and encoura
 - **Audio Functionality:** Includes sound functionality for an enhanced user experience, where configured.
 - **Modular Code Structure:** Separates interface, chatbot logic, and supporting functionality into different components.
 
+ ## VIDEO REPRESENTATION!!!
+ https://advtechonline-my.sharepoint.com/:v:/r/personal/st10123592_rcconnect_edu_za/_layouts/15/stream.aspx?id=%2Fpersonal%2Fst10123592%5Frcconnect%5Fedu%5Fza%2FDocuments%2FLabVM2335921%20%282%29%20%2D%20labvmdnsbqthgpgppkrhs%2Esouthafricanorth%2Ecloudapp%2Eazure%2Ecom%5F3389%20%2D%20Remote%20Desktop%20Connection%202026%2D10%2D16%2012%2D41%2D47%2Emp4&share=cQrFOjmCXWMqSIWoaumQ6xcNEgUCIpmlo3dJCvgWJ6ioXKX2Jg
+
+ ## ACTIONS
+ <img width="975" height="186" alt="image" src="https://github.com/user-attachments/assets/c56ed32a-51b0-45cb-aaa9-bd3371cddf20" />
+
+
 ## Technologies Used
 
 - C#
